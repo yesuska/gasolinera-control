@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Control Gasolinera</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="shortcut icon" type="image/png" href="./img/favicon.png" />
+
+  <meta name="theme-color" content="#0069d9" />
+
+  <meta name="MobileOptimized" content="width" />
+  <meta name="HandheldFriendly" content="true" />
+
+  <link rel="manifest" href="./manifest.json" />
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/styles.css" />
+
+  <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-database.js"></script>
+
+</head>
+
+<body>
+  <div class="container-fluid">
+    <br />
+
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" onclick="stopAndRestart()">
+          <img src="./img/home.png" />
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="conf-tab" data-toggle="tab" href="#conf" role="tab" aria-controls="conf" aria-selected="false" onclick="stopAndRestart()">
+          <img src="./img/tools.png" />
+        </a>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <form>
+          <br />
+          <button type="button" class="btn btn-success btn-block" onclick="startPouring()">Despachar</button>
+          <br />
+          <button type="button" class="btn btn-danger btn-block" onclick="stopPouring()">Detener</button>
+          <br />
+          <button type="button" class="btn btn-warning btn-block" onclick="restartPouring()">Reiniciar</button>
+          <br />
+          <div class="form-group">
+            <label for="totalLiters">Litros</label>
+            <input type="text" class="form-control" id="totalLiters" disabled />
+          </div>
+          <div class="form-group">
+            <label for="totalPrice">Precio</label>
+            <input type="text" class="form-control" id="totalPrice" disabled />
+          </div>
+        </form>
+      </div>
+
+      <div class="tab-pane fade" id="conf" role="tabpanel" aria-labelledby="conf-tab">
+        <form>
+          <br />
+          <div class="form-group">
+            <label for="pricePerLiter">Precio por litro</label>
+            <input type="number" class="form-control" id="pricePerLiter" />
+          </div>
+          <button type="button" class="btn btn-primary btn-block" onclick="changePrice()">Modificar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="./main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
